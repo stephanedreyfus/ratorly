@@ -12,7 +12,6 @@ const ratingsRoutes = require("./routes/rate");
 const morgan = require("morgan")
 
 const app = express();
-const router = express.Router();
 
 app.use(cors());
 app.use(express.json());
