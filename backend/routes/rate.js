@@ -11,7 +11,7 @@ const router = express.Router({ mergeParams: true });
 router.get("/", async function (req, res, next) {
   try {
     // Api call to get some movies goes here
-    return <h2>The movies page! Will populate soon!</h2>
+    return res.send('<h2>The movies page! Will populate soon!</h2>')
   } catch (err) {
     return next(err);
   }

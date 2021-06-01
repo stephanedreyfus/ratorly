@@ -20,8 +20,8 @@ app.use(morgan("tiny"));
 
 app.use("/rate", ratingsRoutes);
 
-router.get("/", function (req, res, next) {
-  return <h1>Welcome to Ratorly! Things still under construction.</h1>;
+app .get("/", function (req, res, next) {
+  return res.send('<h1>Welcome to Ratorly! Things still under construction.</h1>');
 });
 
 /** Handle 404 errors --  this matches everything*/
