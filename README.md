@@ -2,6 +2,10 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## API for Movie Details
+
+This product uses the [TMDb API](https://www.themoviedb.org/) but is not endorsed or certified by TMDb.
+
 ## Available Scripts
 
 In the project directory, you can run:
