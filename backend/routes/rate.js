@@ -18,3 +18,5 @@ router.get("/", async function (req, res, next) {
 });
 
 module.exports = router;
+
+// When voting and searching for a movie, remember to send id as an integer!
