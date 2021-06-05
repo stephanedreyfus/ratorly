@@ -1,4 +1,4 @@
-REATE TABLE ratings (
+CREATE TABLE ratings (
   id SERIAL PRIMARY KEY,
   movie_id INTEGER NOT NULL,
   positive INTEGER NOT NULL,
