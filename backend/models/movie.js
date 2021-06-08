@@ -9,6 +9,29 @@ const {
 /** Functions for movies. */
 
 class Movie {
+  /** Get a movie from the db
+   * @param movie_id integer
+   * @returns { movie_id, title }
+   * 
+   * Throws NotFoundError if movie not found.
+   */
+
+  static async getMovie(movie_id) {
+    const movieRes = await db.query(
+          `SELECT movie_id, title
+          FROM ratings
+          WHERE movie_id = $1`,
+          [movie_id],
+    );
+
+    const movie = movieRes[0];
+
+    if (!movie) throw new NotFoundError(`No movie with ID: ${movie_id}`);
+
+    return movie;
+  }
+
+
   /** Add a vote to a movie
    * @param movie_id integer
    * @param vote string: "positive" or "negative"

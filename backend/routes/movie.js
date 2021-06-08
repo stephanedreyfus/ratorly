@@ -3,6 +3,7 @@
 /** Routes for rating movies. */
 
 const express = require("express");
+const { route } = require("../app");
 const { BadRequestError } = require("../expressError");
 const Movie = require("../models/movie");
 
@@ -13,7 +14,18 @@ const router = express.Router({ mergeParams: true });
 router.get("/", async function (req, res, next) {
   try {
     // Api call to get some movies goes here
-    return res.send('<h2>The movies page! Will populate soon!</h2>')
+    return res.send('<h2>Bacend routes! Writing them now!</h2>')
+  } catch (err) {
+    return next(err);
+  }
+});
+
+
+/** GET / { movie_id } => { movie_id, title } */
+route.get("/find", async function (req, res, next) {
+  try {
+    const movie = await Movie.getMovie(req.body);
+    return res.status(200).json({ movie });
   } catch (err) {
     return next(err);
   }
@@ -26,7 +38,7 @@ router.get("/", async function (req, res, next) {
  * 
  * Returns { title, positive, negative }
  */
-router.post("/", async function (req, res, next) {
+router.post("/rate", async function (req, res, next) {
   try {
     if (
       !req.body ||
