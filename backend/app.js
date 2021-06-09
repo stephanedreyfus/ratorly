@@ -7,7 +7,7 @@ const cors = require("cors");
 
 const { NotFoundError } = require("./expressError");
 
-const ratingsRoutes = require("./routes/rate");
+const movieRoutes = require("./routes/movies");
 
 const morgan = require("morgan")
 
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
 
-app.use("/rate", ratingsRoutes);
+app.use("/movies", movieRoutes);
 
 app .get("/", function (req, res, next) {
   return res.send('<h1>Welcome to Ratorly! Things still under construction.</h1>');
@@ -34,7 +34,7 @@ app.use(function (err, req, res, next) {
   const status = err.status || 500;
   const message = err.message;
 
-  return req.status(status).json({
+  return res.status(status).json({
     error: { message, status },
   });
 });
