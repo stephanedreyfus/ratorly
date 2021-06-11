@@ -23,7 +23,7 @@ router.get("/", async function (req, res, next) {
 /** GET / { movie_id } => { movie_id, title } */
 router.get("/:movie_id", async function (req, res, next) {
   try {
-    const movie = await Movie.getMovie(req.params.movie_id);
+    const movie = await Movie.getMovie(+req.params.movie_id);
     return res.status(200).json({ movie });
   } catch (err) {
     return next(err);
@@ -38,6 +38,7 @@ router.get("/:movie_id", async function (req, res, next) {
  * Returns { title, positive, negative }
  */
 router.post("/rate", async function (req, res, next) {
+  console.log("Did we make it into post a rating?");
   try {
     if (
       !req.body ||
