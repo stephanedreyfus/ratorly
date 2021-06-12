@@ -26,6 +26,7 @@ router.get("/:movie_id", async function (req, res, next) {
     const movie = await Movie.getMovie(+req.params.movie_id);
     return res.status(200).json({ movie });
   } catch (err) {
+    console.log("In catch with err", err.message);
     return next(err);
   }
 });

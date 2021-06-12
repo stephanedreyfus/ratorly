@@ -25,7 +25,7 @@ class Movie {
     );
 
     const movie = movieRes[0];
-
+    
     if (!movie) throw new NotFoundError(`No movie with ID: ${movie_id}`);
 
     return movie;
