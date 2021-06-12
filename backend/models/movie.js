@@ -25,7 +25,7 @@ class Movie {
     );
 
     const movie = movieRes[0];
-    
+
     if (!movie) throw new NotFoundError(`No movie with ID: ${movie_id}`);
 
     return movie;
@@ -40,7 +40,7 @@ class Movie {
    * Throws NotFoundError if movie not found.
    */
 
-  static async addVote(movie_id, vote) {
+  static async addVote({ movie_id, vote }) {
     const movieRes = await db.query(
           `SELECT *
           FROM ratings
@@ -74,7 +74,7 @@ class Movie {
 
   static async addMovie({ movie_id, title, release_date, poster_path }) {
     const duplicateCheck = await db.query(
-          `SELECT movie_title
+          `SELECT title
           FROM ratings
           WHERE movie_id = $1`,
         [movie_id]
@@ -93,7 +93,7 @@ class Movie {
            release_date,
            poster_path)
           VALUES ($1, $2, $3, $4, $5, $6)
-          RETURNING movie_id, title, release_date`,
+          RETURNING movie_id, title`,
         [
           movie_id,
           0,
@@ -103,6 +103,10 @@ class Movie {
           poster_path,
         ],
     );
+    
+    const movie = result.rows[0];
+
+    return movie;
   }
 }
 

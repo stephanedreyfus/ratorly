@@ -32,6 +32,22 @@ router.get("/:movie_id", async function (req, res, next) {
 });
 
 
+/** POST / { movie } => { movie_id }
+ *  
+ * Ratings set to 0 by default on insertion
+ * 
+ * Returns { movie_id, title }
+ */
+router.post("/add", async function (req, res, next) {
+  try {
+    const movie = await Movie.addMovie(req.body);
+    return res.status(201).json({ movie });
+  } catch(err) {
+    return next(err);
+  }
+});
+
+
 /** POST / { rating, movie } => { rating } OR { rating, movie }
  * 
  * incoming data should be { rate, movie_id, title, release_date, poster_path }
