@@ -16,7 +16,7 @@ class Movie {
    * Throws NotFoundError if movie not found.
    */
 
-  static async getMovie(movie_id) {
+  static async getMovie({ movie_id }) {
     const movieRes = await db.query(
           `SELECT movie_id, title
           FROM ratings
@@ -40,29 +40,33 @@ class Movie {
    * Throws NotFoundError if movie not found.
    */
 
-  static async addVote({ movie_id, vote }) {
+  static async addVote({ movie_id, rating }) {
+    if (rating !== "positive" && rating !== "negative") {
+      throw new BadRequestError(`${rating} is an invalid rating.`);
+    }
+
     const movieRes = await db.query(
           `SELECT *
           FROM ratings
           WHERE movie_id = $1`,
           [movie_id],
     );
-    
     const movie = movieRes.rows[0];
 
     if (!movie) throw new NotFoundError(`No movie with ID: ${movie_id}`);
-
+    // TODO Find out why I can't use $ notation to make set values variable in value array.
     const voteRes = await db.query(
           `UPDATE ratings
-          SET $1 = $1 + 1
-          WHERE movie_id = $2
+          SET ${rating} = ${rating} + 1
+          WHERE movie_id = $1
           RETURNING title,
                     positive,
                     negative`,
-          [vote, movie_id],
+          [movie_id],
     );
+    const result = voteRes.rows[0];
 
-    return voteRes;
+    return result;
   }
 
   /** Add a movie to the collection

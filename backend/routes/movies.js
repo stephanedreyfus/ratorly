@@ -50,21 +50,12 @@ router.post("/add", async function (req, res, next) {
 
 /** POST / { rating, movie } => { rating } OR { rating, movie }
  * 
- * incoming data should be { rate, movie_id, title, release_date, poster_path }
+ * incoming data should be { rating, movie_id,}
  * 
  * Returns { title, positive, negative }
  */
 router.post("/rate", async function (req, res, next) {
-  console.log("Did we make it into post a rating?");
   try {
-    if (
-      !req.body ||
-      (req.body.rating !== "positive" &&
-      req.body.rating !== "negative")
-      ) {
-        throw new BadRequestError("Improper rating data.");
-      }
-      
       const ratings = await Movie.addVote(req.body);
       return res.status(200).json({ ratings });
     } catch (err) {
