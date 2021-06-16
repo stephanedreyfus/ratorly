@@ -16,7 +16,7 @@ class Movie {
    * Throws NotFoundError if movie not found.
    */
 
-  static async getMovie({ movie_id }) {
+  static async getMovie(movie_id) {
     const movieRes = await db.query(
           `SELECT movie_id, title
           FROM ratings
@@ -24,8 +24,8 @@ class Movie {
           [movie_id],
     );
 
-    const movie = movieRes[0];
-
+    const movie = movieRes.rows[0];
+    
     if (!movie) throw new NotFoundError(`No movie with ID: ${movie_id}`);
 
     return movie;
