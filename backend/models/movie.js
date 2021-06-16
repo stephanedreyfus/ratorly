@@ -25,10 +25,33 @@ class Movie {
     );
 
     const movie = movieRes.rows[0];
-    
+
     if (!movie) throw new NotFoundError(`No movie with ID: ${movie_id}`);
 
     return movie;
+  }
+
+  /** Get all movies
+   * 
+   * @returns [{movie}, {movie}, ...] where movie is:
+   *          {movie_id, title, positive, negative, release_date}
+   * 
+   * No route calls this yet.
+   */
+  static async getAllMovies() {
+    const moviesRes = await db.query(
+          `SELECT movie_id,
+                  title,
+                  positive,
+                  negative,
+                  release_date
+           FROM ratings`
+      );
+      const movies = moviesRes.rows
+
+      if (movies.length < 1) throw new NotFoundError('No movies in DB');
+
+      return movies;
   }
 
 
@@ -64,9 +87,9 @@ class Movie {
                     negative`,
           [movie_id],
     );
-    const result = voteRes.rows[0];
+    const vote = voteRes.rows[0];
 
-    return result;
+    return vote;
   }
 
   /** Add a movie to the collection
