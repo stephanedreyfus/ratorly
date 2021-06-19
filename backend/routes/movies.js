@@ -3,7 +3,6 @@
 /** Routes for rating movies. */
 
 const express = require("express");
-const { BadRequestError } = require("../expressError");
 const Movie = require("../models/movie");
 
 const router = express.Router({ mergeParams: true });
