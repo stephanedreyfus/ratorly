@@ -30,6 +30,18 @@ class RatorlyApi {
     let res = await this.request("movies");
     return res.movies;
   }
+
+  static async getOneMovie(data) {
+    let res = await this.request(`${data}`);
+    return res.movie;
+  }
+
+  static async addMovie(data) {
+    let res = await this.request("add", data, "post");
+    return res.movie;
+  }
+
+  static async 
 }
 
 export default RatorlyApi;
