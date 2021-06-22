@@ -41,7 +41,10 @@ class RatorlyApi {
     return res.movie;
   }
 
-  static async 
+  static async addRating(data) {
+    let res = await this.request("rate", data, "post");
+    return res.rating;
+  }
 }
 
 export default RatorlyApi;
