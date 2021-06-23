@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter} from "react-router-dom";
 import Navigation from ".Navigation";
 import Routes from "./Routes";
-import RatorlyApi from "./RatorlyApi";
+import RatorlyApi from ".s/api/RatorlyApi";
 import './App.css';
 import { ClipLoader } from "react-spinners";
 
@@ -22,6 +22,8 @@ function App() {
       }
     }
   });
+
+  // if (!useState) return ClipLoader()
 
   return (
     <BrowserRouter>
