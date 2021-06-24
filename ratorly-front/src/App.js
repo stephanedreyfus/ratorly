@@ -1,29 +1,34 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter} from "react-router-dom";
-import Navigation from ".Navigation";
-import Routes from "./Routes";
-import RatorlyApi from ".s/api/RatorlyApi";
+import Navigation from "./routes-nav/Navigation";
+import Routes from "./routes-nav/Routes";
+import RatorlyApi from "./api/RatorlyApi";
 import './App.css';
 import { ClipLoader } from "react-spinners";
 
 function App() {
-  const [currentMovies, setCurrentMovies]
+  const [currentMovies, setCurrentMovies] = useState(null);
   const [moviesLoaded, setMoviesLoaded] = useState(false);
 
   // Collect movies to display from TMDb
   useEffect(() => {
-    async function getMovies {
+    async function getMovies() {
       try {
         let moviesToShow = await RatorlyApi.getCurrentMovies()
         setCurrentMovies(moviesToShow);
         setMoviesLoaded(true);
       } catch (err) {
         console.log(err);
+        setMoviesLoaded(false)
       }
+      setMoviesLoaded(true);
     }
-  });
 
-  // if (!useState) return ClipLoader()
+    setMoviesLoaded(false);
+    getMovies();
+  }, []);
+
+  if (!moviesLoaded) return <ClipLoader />
 
   return (
     <BrowserRouter>
