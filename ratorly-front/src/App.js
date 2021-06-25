@@ -35,7 +35,7 @@ function App() {
       <div className="App">
         <p>Eventually search for and rate movies.</p>
         <Navigation />
-        <Routes />
+        <Routes currMovies={currentMovies}/>
       </div>
     </BrowserRouter>
   );

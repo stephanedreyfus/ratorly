@@ -7,15 +7,15 @@ import Homepage from "../homepage/Homepage";
  * 
  * Visiting a non-existant route redirects to the homepage.
  */
-function Routes() {
+function Routes({ currMovies }) {
   return (
     <div className="pt-5">
       <Switch>
 
         <Route>
-          <Homepage />
+          <Homepage currMovies={currMovies} />
         </Route>
-        
+
         <Redirect to="/" />
       </Switch>
     </div>
