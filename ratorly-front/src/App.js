@@ -8,6 +8,7 @@ import { ClipLoader } from "react-spinners";
 
 function App() {
   const [currentMovies, setCurrentMovies] = useState(null);
+  const [ratedMovies, setRatedMovies] = useState(null);
   const [moviesLoaded, setMoviesLoaded] = useState(false);
 
   // Collect movies to display from TMDb
@@ -35,7 +36,7 @@ function App() {
       <div className="App">
         <p>Eventually search for and rate movies.</p>
         <Navigation />
-        <Routes currMovies={currentMovies}/>
+        <Routes currMovies={currentMovies} ratedMovies={ratedMovies}/>
       </div>
     </BrowserRouter>
   );
