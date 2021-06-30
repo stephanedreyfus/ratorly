@@ -38,6 +38,7 @@ class Movie {
    * 
    * No route calls this yet.
    */
+  // TODO Shouldn't this be sending back the poster url?
   static async getAllMovies() {
     const moviesRes = await db.query(
           `SELECT movie_id,
