@@ -8,16 +8,16 @@ import Rated from "../rating/Rated";
  * 
  * Visiting a non-existant route redirects to the homepage.
  */
-function Routes({ currMovies, getRatedMovies,ratedMovies }) {
+function Routes({ currMovies ,ratedMovies }) {
   return (
     <div className="pt-5">
       <Switch>
 
-        <Route>
+        <Route exact path="/">
           <Homepage currMovies={currMovies} />
         </Route>
 
-        <Route>
+        <Route exact path="/rating">
           <Rated ratedMovies={ratedMovies} />
         </Route>
 

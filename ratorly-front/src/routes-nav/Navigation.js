@@ -13,6 +13,11 @@ function Navigation() {
         Ratorly
       </NavLink>
     </li>
+    <li className="nav-item mr-4">
+      <NavLink className="nav-link" to="/rating">
+        Rate Movies
+      </NavLink>
+    </li>
   </ul>
 }
 
