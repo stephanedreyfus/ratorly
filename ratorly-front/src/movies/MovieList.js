@@ -12,7 +12,7 @@ function MovieList({ listType, movies }) {
                        title={movie.title}
                        positive={movie.positive}
                        negative={movie.negative}
-                       poster={movie.poster_url}
+                       poster={movie.poster_path}
             />
          ))}
       </div>

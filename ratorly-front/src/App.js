@@ -17,16 +17,27 @@ function App() {
       try {
         let moviesToShow = await RatorlyApi.getCurrentMovies()
         setCurrentMovies(moviesToShow);
+      } catch (err) {
+        console.log(err);
+        setMoviesLoaded(false);
+      }
+    }
+    
+    async function getRatedMovies() {
+      try {
+        let res = await RatorlyApi.getMovies()
+        console.debug("What is res and do we need to unpack to get to array?", res);
+        setRatedMovies(res);
         setMoviesLoaded(true);
       } catch (err) {
         console.log(err);
-        setMoviesLoaded(false)
+        setMoviesLoaded(false);
       }
-      setMoviesLoaded(true);
     }
 
     setMoviesLoaded(false);
     getMovies();
+    getRatedMovies();
   }, []);
 
   if (!moviesLoaded) return <ClipLoader />
@@ -36,7 +47,9 @@ function App() {
       <div className="App">
         <p>Eventually search for and rate movies.</p>
         <Navigation />
-        <Routes currMovies={currentMovies} ratedMovies={ratedMovies}/>
+        <Routes currMovies={currentMovies}
+                ratedMovies={ratedMovies}
+        />
       </div>
     </BrowserRouter>
   );

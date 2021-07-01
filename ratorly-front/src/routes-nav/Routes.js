@@ -8,7 +8,7 @@ import Rated from "../rating/Rated";
  * 
  * Visiting a non-existant route redirects to the homepage.
  */
-function Routes({ currMovies, ratedMovies }) {
+function Routes({ currMovies, getRatedMovies,ratedMovies }) {
   return (
     <div className="pt-5">
       <Switch>
