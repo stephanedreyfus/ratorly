@@ -2,6 +2,7 @@ import axios from "axios";
 
 const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
 const BASE_TMDb_URL = "https://api.themoviedb.org/3/movie";
+const TMDb_KEY = "?api_key=2ce92882d951f47a76b948943e739de5&language=en-US&page=1"
 
 class RatorlyApi {
   // Requests related to Ratorly back end.
@@ -57,11 +58,12 @@ class RatorlyApi {
     // Need to check how TMDb handles searches.
     if (endpoint === "now_playing") {
       q = axios.get(
-        `${BASE_TMDb_URL}/${endpoint}`
+        `${BASE_TMDb_URL}/${endpoint}${TMDb_KEY}`
       );
     } else {
+      // TODO Look up and set elses to other known search parameters. TMDb does not take JSON body.
       q = axios.get(
-        `${BASE_TMDb_URL}/${endpoint}`, { params: { params }}
+        `${BASE_TMDb_URL}/${endpoint}${TMDb_KEY}`, { params: { params }}
       );
     }
 

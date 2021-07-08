@@ -19,7 +19,7 @@ app.use(morgan("tiny"));
 
 app.use("/movies", movieRoutes);
 
-app .get("/", function (req, res, next) {
+app.get("/", function (req, res, next) {
   return res.send('<h1>Welcome to Ratorly! Things still under construction.</h1>');
 });
 
