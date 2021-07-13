@@ -1,12 +1,12 @@
 import axios from "axios";
+import { API_KEY_V3 } from "../config";
 
 const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
 const BASE_TMDb_URL = "https://api.themoviedb.org/3/movie";
-const TMDb_KEY = "?api_key=2ce92882d951f47a76b948943e739de5&language=en-US&page=1"
 
 class RatorlyApi {
   // Requests related to Ratorly back end.
-  static async request(endpoint, params = {}, verb = "get") {
+  static async request(endpoint, params, verb = "get") {
 
     console.debug("API Call:", endpoint, params, verb);
 
@@ -30,7 +30,7 @@ class RatorlyApi {
   }
 
   static async getMovies() {
-    let res = await this.request("movies");
+    let res = await this.request("movies/all");
     return res.movies;
   }
 
@@ -57,13 +57,16 @@ class RatorlyApi {
     // Else needs updating from searhch type available at TMDb
     // Need to check how TMDb handles searches.
     if (endpoint === "now_playing") {
+
+      console.debug(`Inside of dbRequest with endpoint ${endpoint} and this api: ${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&page=1`);
+
       q = axios.get(
-        `${BASE_TMDb_URL}/${endpoint}${TMDb_KEY}`
+        `${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&page=1`
       );
     } else {
       // TODO Look up and set elses to other known search parameters. TMDb does not take JSON body.
       q = axios.get(
-        `${BASE_TMDb_URL}/${endpoint}${TMDb_KEY}`, { params: { params }}
+        `${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}`, { params: { params }}
       );
     }
 

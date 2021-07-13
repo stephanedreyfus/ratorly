@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Homepage.css";
 import MovieList from "../movies/MovieList";
 
@@ -13,6 +13,7 @@ import MovieList from "../movies/MovieList";
  */
 
 function Homepage({ currMovies }) {
+  return (
   <div className="Homepage">
     <div className="container text-center">
       <h1 className="mb-4 font-weight-bold">Ratorly</h1>
@@ -20,6 +21,7 @@ function Homepage({ currMovies }) {
       <MovieList listType="Current Movies" movies={currMovies} />
     </div>
   </div>
+  );
 }
 
 export default Homepage;

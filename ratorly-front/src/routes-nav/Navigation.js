@@ -7,6 +7,7 @@ import { NavLink } from "react-router-dom";
 */
 
 function Navigation() {
+  return (
   <ul className="navbar-nav ml-auto">
     <li className="nav-item mr-4">
       <NavLink className="nav-link" to="/">
@@ -19,6 +20,7 @@ function Navigation() {
       </NavLink>
     </li>
   </ul>
+  );
 }
 
 export default Navigation;
