@@ -6,15 +6,15 @@ const BASE_TMDb_URL = "https://api.themoviedb.org/3/movie";
 
 class RatorlyApi {
   // Requests related to Ratorly back end.
-  static async request(endpoint, params, verb = "get") {
+  static async request(endpoint, verb = "get", params = null) {
 
-    console.debug("API Call:", endpoint, params, verb);
+    console.debug("API Call:", endpoint, verb, params);
 
     let q;
 
     if (verb === "get") {
       q = axios.get(
-        `${BASE_URL}/${endpoint}`, { params: {params} });
+        `${BASE_URL}/${endpoint}`);
     } else if (verb === "post") {
       q = axios.post(
         `${BASE_URL}/${endpoint}`, { params });
