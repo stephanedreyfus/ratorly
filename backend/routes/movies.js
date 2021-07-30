@@ -25,6 +25,9 @@ router.get("/all", async function (req, res, next) {
     const movies = await Movie.getAllMovies();
     return res.status(200).json({ movies })
   } catch (err) {
+    if (err.message === "No movies in DB") {
+      return res.status(200).json({movies: []});
+    }
     return next(err);
   }
 });

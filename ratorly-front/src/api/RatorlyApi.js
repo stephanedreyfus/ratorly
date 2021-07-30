@@ -31,22 +31,22 @@ class RatorlyApi {
 
   static async getMovies() {
     let res = await this.request("movies/all");
-    return res.movies;
+    return res.data.movies;
   }
 
   static async getOneMovie(data) {
     let res = await this.request(`${data}`);
-    return res.movie;
+    return res.data.movie;
   }
 
   static async addMovie(data) {
     let res = await this.request("add", data, "post");
-    return res.movie;
+    return res.data.movie;
   }
 
   static async addRating(data) {
     let res = await this.request("rate", data, "post");
-    return res.ratings;
+    return res.data.ratings;
   }
 
   // Requests related to TMDb API
@@ -82,7 +82,7 @@ class RatorlyApi {
   // Returns an array of 20 movies currently showing.
   static async getCurrentMovies() {
     let res = await this.dbRequest("now_playing");
-    return res.results;
+    return res.data.results;
   }
 }
 

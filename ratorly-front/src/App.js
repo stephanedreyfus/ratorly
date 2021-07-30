@@ -18,7 +18,7 @@ function App() {
         let moviesToShow = await RatorlyApi.getCurrentMovies()
         setCurrentMovies(moviesToShow);
       } catch (err) {
-        console.log(err);
+        console.log("This is the error inside of get movies for getCurrentMovies", err);
         setMoviesLoaded(false);
       }
     }
@@ -30,7 +30,7 @@ function App() {
         setRatedMovies(res);
         setMoviesLoaded(true);
       } catch (err) {
-        console.log(err);
+        console.log("This is the error inside of getMovies", err);
         setMoviesLoaded(false);
       }
     }
