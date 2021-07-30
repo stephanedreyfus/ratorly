@@ -5,7 +5,7 @@ function MovieCard({ title, positive, negative, poster }) {
     // TODO Look for good fontawesome for ratings <p>
     return (
         <div className="movie-card container">
-            <img src={poster} alt={title} />
+            <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${poster}`} alt={title} />
             <div className="movie-title">{title}</div>
             <div>
                 Ratings:
