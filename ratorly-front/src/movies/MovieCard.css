@@ -1,0 +1,17 @@
+.movie-card {
+    display: inline-block;
+    background-color: lightskyblue;
+    border-radius: 10px;
+    margin: .5em;
+    padding: .5em;
+}
+
+.rating-container {
+    display:flex;
+    flex-grow: 1;
+}
+
+.movie-title {
+    max-width: 90%;
+    word-wrap: break-word;
+}

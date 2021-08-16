@@ -6,7 +6,7 @@ function MovieList({ listType, movies }) {
    console.debug(`Movielist got props ${listType} for type and ${movies} for content`);
 // TODO Get correct name for poster/backroung value
    return (
-      <div>
+      <div className="movie-list">
          {movies.map(movie => (
             <MovieCard key={movie.id || movie.movie_id}
                        title={movie.title}
