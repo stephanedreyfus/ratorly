@@ -40,7 +40,7 @@ function App() {
     getRatedMovies();
   }, []);
 
-  if (!moviesLoaded) return <ClipLoader />
+  if (!moviesLoaded || !currentMovies || !ratedMovies) return <ClipLoader />
 
   return (
     <BrowserRouter>

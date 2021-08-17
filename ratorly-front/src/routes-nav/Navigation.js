@@ -1,5 +1,9 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import {
+  Navbar,
+  Nav
+} from 'reactstrap';
 
 /** Navigation bar for site. Appears on every page.
  * 
@@ -8,18 +12,20 @@ import { NavLink } from "react-router-dom";
 
 function Navigation() {
   return (
-  <ul className="navbar-nav ml-auto">
-    <li className="nav-item mr-4">
-      <NavLink className="nav-link" to="/">
-        Ratorly
-      </NavLink>
-    </li>
-    <li className="nav-item mr-4">
-      <NavLink className="nav-link" to="/rating">
-        Rate Movies
-      </NavLink>
-    </li>
-  </ul>
+  <div>
+    <Navbar>
+      <Nav>
+        <NavLink className="nav-link" to="/">
+          Ratorly
+        </NavLink>
+      </Nav>
+      <Nav>
+        <NavLink className="nav-link" to="/rating">
+          Rate Movies
+        </NavLink>
+      </Nav>
+    </Navbar>
+  </div>  
   );
 }
 
