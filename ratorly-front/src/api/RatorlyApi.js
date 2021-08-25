@@ -54,19 +54,20 @@ class RatorlyApi {
     console.debug("TMDb Call:", endpoint, params);
 
     let q;
-    // Else needs updating from searhch type available at TMDb
-    // Need to check how TMDb handles searches.
     if (endpoint === "now_playing") {
 
       console.debug(`Inside of dbRequest with endpoint ${endpoint} and this api: ${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&page=1`);
-
+      
       q = axios.get(
         `${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&page=1`
-      );
-    } else {
-      // TODO Look up and set elses to other known search parameters. TMDb does not take JSON body.
+        );
+
+    } else if (endpoint === "search_movie") {
+
+      console.debug(`Inside of dbRequest with endpoint ${endpoint} and this api: ${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&query=${params}&page=1&include_adult=false`);
+
       q = axios.get(
-        `${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}`, { params: { params }}
+        `${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&query=${params}&page=1&include_adult=false`
       );
     }
 
@@ -82,6 +83,12 @@ class RatorlyApi {
   // Returns an array of 20 movies currently showing.
   static async getCurrentMovies() {
     let res = await this.dbRequest("now_playing");
+    return res.data.results;
+  }
+
+  // Returns an array of up to 20 movies related to search criteria
+  static async movieSearch (search) {
+    let res = await this.dbRequest("search_movie", search);
     return res.data.results;
   }
 }

@@ -10,7 +10,7 @@ import {
  * Rendered by App.
 */
 
-function Navigation() {
+function Navigation({doSearch}) {
   return (
   <div id="nav-container">
     <Navbar>
@@ -29,11 +29,11 @@ function Navigation() {
           ReactStrap Test Page
         </NavLink>
       </Nav>
-      <form action="#" id="search-form">
+      <form onClick={doSearch()} id="search-form">
         <input type="search"
                id="seawrch-field"
                name="search"
-               required="true"
+               required={true}
                placeholder="Search for a movie."
         />
       </form>
