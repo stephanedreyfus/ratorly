@@ -12,7 +12,7 @@ import {
 
 function Navigation() {
   return (
-  <div>
+  <div id="nav-container">
     <Navbar>
       <Nav>
         <NavLink className="nav-link" to="/">
@@ -24,6 +24,19 @@ function Navigation() {
           Rate Movies
         </NavLink>
       </Nav>
+      <Nav>
+        <NavLink className="nav-link" to="/test">
+          ReactStrap Test Page
+        </NavLink>
+      </Nav>
+      <form action="#" id="search-form">
+        <input type="search"
+               id="seawrch-field"
+               name="search"
+               required="true"
+               placeholder="Search for a movie."
+        />
+      </form>
     </Navbar>
   </div>  
   );

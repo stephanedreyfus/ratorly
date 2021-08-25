@@ -40,12 +40,17 @@ function App() {
     getRatedMovies();
   }, []);
 
+  // document.getElementById("nav-container").onclick(e => {
+  //   e.preventDefault();
+  //   console.log(`You just clicked on ${e.target}`);
+  // })
+
   if (!moviesLoaded || !currentMovies || !ratedMovies) return <ClipLoader />
 
   return (
     <BrowserRouter>
       <div className="App">
-        <p>Eventually search for and rate movies.</p>
+        <p id="home-intro">Search For and Rate Movies</p>
         <Navigation />
         <Routes currMovies={currentMovies}
                 ratedMovies={ratedMovies}

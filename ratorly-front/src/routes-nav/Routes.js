@@ -2,6 +2,7 @@ import React from "react";
 import {Switch, Route, Redirect} from "react-router-dom";
 import Homepage from "../homepage/Homepage";
 import Rated from "../rating/Rated";
+import TestPage from "../homepage/TestPage";
 
 
 /** Site-wide routes.
@@ -19,6 +20,10 @@ function Routes({ currMovies ,ratedMovies }) {
 
         <Route exact path="/rating">
           <Rated ratedMovies={ratedMovies} />
+        </Route>
+
+        <Route>
+          <TestPage />
         </Route>
 
         <Redirect to="/" />
