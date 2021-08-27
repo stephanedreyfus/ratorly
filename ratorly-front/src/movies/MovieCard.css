@@ -6,9 +6,11 @@
     padding: .5em;
 }
 
-.rating-container {
+.ratings-container {
     display:flex;
     flex-grow: 1;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .movie-title {

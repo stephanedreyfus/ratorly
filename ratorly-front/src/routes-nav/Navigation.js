@@ -1,4 +1,5 @@
 import React from "react";
+import "./Navigation.css";
 import SearchForm from "./SearchForm"
 import { NavLink } from "react-router-dom";
 import {
@@ -13,8 +14,8 @@ import {
 
 function Navigation({doSearch}) {
   return (
-  <div id="nav-container">
-    <Navbar>
+  <div >
+    <Navbar id="nav-container">
       <Nav>
         <NavLink className="nav-link" to="/">
           Ratorly

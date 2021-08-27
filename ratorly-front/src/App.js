@@ -40,17 +40,11 @@ function App() {
     getRatedMovies();
   }, []);
 
-  // document.getElementById("nav-container").onclick(e => {
-  //   e.preventDefault();
-  //   console.log(`You just clicked on ${e.target}`);
-  // })
-
   if (!moviesLoaded || !currentMovies || !ratedMovies) return <ClipLoader />
 
   return (
     <BrowserRouter>
       <div className="App">
-        <p id="home-intro">Search For and Rate Movies</p>
         {/* Need to move search to a new function that also updates page content, pass that down, not API itself. */}
         <Navigation />
         <Routes currMovies={currentMovies}
