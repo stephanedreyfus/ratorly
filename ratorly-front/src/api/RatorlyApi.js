@@ -2,7 +2,7 @@ import axios from "axios";
 import { API_KEY_V3 } from "../config";
 
 const BASE_URL = process.env.BASE_URL || "http://localhost:3001";
-const BASE_TMDb_URL = "https://api.themoviedb.org/3/movie";
+const BASE_TMDb_URL = "https://api.themoviedb.org/3";
 
 class RatorlyApi {
   // Requests related to Ratorly back end.
@@ -59,10 +59,10 @@ class RatorlyApi {
       console.debug(`Inside of dbRequest with endpoint ${endpoint} and this api: ${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&page=1`);
       
       q = axios.get(
-        `${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&page=1`
+        `${BASE_TMDb_URL}/movie/${endpoint}?api_key=${API_KEY_V3}&language=en-US&page=1`
         );
 
-    } else if (endpoint === "search_movie") {
+    } else if (endpoint === "search/movie") {
 
       console.debug(`Inside of dbRequest with endpoint ${endpoint} and this api: ${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&query=${params}&page=1&include_adult=false`);
 
@@ -82,13 +82,16 @@ class RatorlyApi {
  
   // Returns an array of 20 movies currently showing.
   static async getCurrentMovies() {
+    console.log("In get recent in API with this:", this);
     let res = await this.dbRequest("now_playing");
     return res.data.results;
   }
-
+  
   // Returns an array of up to 20 movies related to search criteria
   static async movieSearch (search) {
-    let res = await this.dbRequest("search_movie", search);
+    console.log("In search in API with this:", this);
+    let res = await this.dbRequest("search/movie", search);
+    console.log("Here are the results:", res);
     return res.data.results;
   }
 }

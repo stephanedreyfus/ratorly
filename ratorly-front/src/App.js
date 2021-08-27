@@ -52,7 +52,7 @@ function App() {
       <div className="App">
         <p id="home-intro">Search For and Rate Movies</p>
         {/* Need to move search to a new function that also updates page content, pass that down, not API itself. */}
-        <Navigation doSearch={RatorlyApi.movieSearch}/>
+        <Navigation />
         <Routes currMovies={currentMovies}
                 ratedMovies={ratedMovies}
         />

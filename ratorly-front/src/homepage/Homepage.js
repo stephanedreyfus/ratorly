@@ -13,6 +13,7 @@ import MovieList from "../movies/MovieList";
  */
 
 function Homepage({ currMovies }) {
+  console.log("Is this rendering twice?");
   return (
   <div className="Homepage">
     <div className="container text-center">

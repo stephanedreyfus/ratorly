@@ -1,4 +1,5 @@
 import React from "react";
+import SearchForm from "./SearchForm"
 import { NavLink } from "react-router-dom";
 import {
   Navbar,
@@ -29,14 +30,7 @@ function Navigation({doSearch}) {
           ReactStrap Test Page
         </NavLink>
       </Nav>
-      <form onClick={doSearch()} id="search-form">
-        <input type="search"
-               id="seawrch-field"
-               name="search"
-               required={true}
-               placeholder="Search for a movie."
-        />
-      </form>
+      <SearchForm />
     </Navbar>
   </div>  
   );
