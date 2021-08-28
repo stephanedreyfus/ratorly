@@ -3,6 +3,7 @@ import {Switch, Route, Redirect} from "react-router-dom";
 import Homepage from "../homepage/Homepage";
 import Rated from "../rating/Rated";
 import TestPage from "../homepage/TestPage";
+import SearchForm from "../search/SearchForm";
 
 
 /** Site-wide routes.
@@ -20,6 +21,10 @@ function Routes({ currMovies ,ratedMovies }) {
 
         <Route exact path="/rating">
           <Rated ratedMovies={ratedMovies} />
+        </Route>
+
+        <Route exact path="/search">
+          <SearchForm />
         </Route>
 
         <Route>
