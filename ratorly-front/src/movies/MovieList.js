@@ -8,6 +8,7 @@ function MovieList({ listType, movies }) {
       <div className="movie-list">
          {movies.map(movie => (
             <MovieCard key={movie.id || movie.movie_id}
+                       id={movie.id || movie.movie_id}
                        title={movie.title}
                        positive={movie.positive}
                        negative={movie.negative}

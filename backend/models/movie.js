@@ -69,6 +69,7 @@ class Movie {
       throw new BadRequestError(`${rating} is an invalid rating.`);
     }
 
+    // Check to see if movie is already in db.
     const movieRes = await db.query(
           `SELECT *
           FROM ratings
