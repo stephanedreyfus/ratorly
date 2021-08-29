@@ -7,6 +7,7 @@ function SearchForm () {
   const [searchData, setSearchData] = useState({});
   const [searchResults, setSearchResults] = useState([])
 
+  // This one works (as well as the call in App.js)
   useEffect(async () => {
     try {
       let res = await RatorlyApi.movieSearch("morph");
@@ -24,8 +25,8 @@ function SearchForm () {
     }));
   }
 
+  // This one never works. It goes through the API code, fails the make the call, and then refreshes the whole app.
   const doSearch = async () => {
-    // Clear state to make room for new search.
     setSearchResults(() => []);
     let res = await RatorlyApi.movieSearch(searchData.search);
     console.log("This is the result fro the search field call:", res.results);
