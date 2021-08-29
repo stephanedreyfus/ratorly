@@ -9,8 +9,8 @@ function MovieCard({ title, positive, negative, poster }) {
       <div className="movie-title">{title}</div>
       <div className="ratings-container">
         <p>Ratings: </p>
-        <p><i class="fa-solid fa-thumbs-up"></i> {positive || 0}</p>
-        <p><i class="fa-solid fa-thumbs-down"></i> {negative || 0}</p>
+        <p><i className="fa-solid fa-thumbs-up"></i> {positive || 0}</p>
+        <p><i className="fa-solid fa-thumbs-down"></i> {negative || 0}</p>
       </div>
     </div>
   )

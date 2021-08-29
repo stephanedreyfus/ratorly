@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import MovieList from "../movies/MovieList";
 import RatorlyApi from "../api/RatorlyApi";
 
@@ -7,8 +7,16 @@ function SearchForm () {
   const [searchData, setSearchData] = useState({});
   const [searchResults, setSearchResults] = useState([])
 
+  useEffect(async () => {
+    try {
+      let res = await RatorlyApi.movieSearch("morph");
+      setSearchResults(() => res.results);
+    } catch (err) {
+      console.log("This is the error inside of get movies for getCurrentMovies", err);
+    }
+  }, [])
+
   const handleChange = evt => {
-    evt.preventDefault();
     const { name, value } = evt.target
     setSearchData(searchData => ({
       ...searchData,
@@ -17,12 +25,11 @@ function SearchForm () {
   }
 
   const doSearch = async () => {
-    setSearchResults()
+    // Clear state to make room for new search.
+    setSearchResults(() => []);
     let res = await RatorlyApi.movieSearch(searchData.search);
-    console.log("This is the result fro the search field call:", res);
-    setSearchResults(searchResults => {
-      [...searchResults, ...res]
-    });
+    console.log("This is the result fro the search field call:", res.results);
+    setSearchResults(() => res.results);
   }
 
   const notYet = (<h3>No Search Results Yet</h3>);
@@ -42,7 +49,7 @@ function SearchForm () {
         />
       </form>
       <section>
-        {searchResults.length ? showResults : notYet}
+        {searchResults ? showResults : notYet}
       </section>
     </div>
   )

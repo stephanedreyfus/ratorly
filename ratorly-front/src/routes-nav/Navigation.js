@@ -1,6 +1,5 @@
 import React from "react";
 import "./Navigation.css";
-import SearchForm from "../search/SearchForm"
 import { NavLink } from "react-router-dom";
 import {
   Navbar,
@@ -27,7 +26,7 @@ function Navigation({doSearch}) {
         </NavLink>
       </Nav>
       <Nav>
-        <NavLink className="nav-link" t0="/search">
+        <NavLink className="nav-link" to="/search">
           Search for Movies to Rate
         </NavLink>
       </Nav>
