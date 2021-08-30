@@ -12,7 +12,7 @@ const router = express.Router({ mergeParams: true });
 router.get("/", async function (req, res, next) {
   try {
     // Api call to get some movies goes here
-    return res.send('<h2>Backend routes! Writing them now!</h2>')
+    return res.send('<h2>Backend routes! Nothing else here, try "/all"</h2>')
   } catch (err) {
     return next(err);
   }
@@ -68,7 +68,7 @@ router.post("/add", async function (req, res, next) {
  */
 router.post("/rate", async function (req, res, next) {
   try {
-      const ratings = await Movie.addVote(req.body);
+      const ratings = await Movie.addVote(req.body.params);
       return res.status(200).json({ ratings });
     } catch (err) {
       return next(err);

@@ -65,6 +65,7 @@ class Movie {
    */
 
   static async addVote({ movie_id, rating }) {
+    console.log("Incoming data:", movie_id, "and", rating);
     if (rating !== "positive" && rating !== "negative") {
       throw new BadRequestError(`${rating} is an invalid rating.`);
     }

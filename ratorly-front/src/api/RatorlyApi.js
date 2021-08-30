@@ -25,7 +25,7 @@ class RatorlyApi {
     } catch (err) {
       console.error("API Error:", err.response);
       let message = err.response.data.message;
-      throw Array.isArray(message) ? message : [message]; 
+      return Array.isArray(message) ? message : [message]; 
     }
   }
 
@@ -35,17 +35,17 @@ class RatorlyApi {
   }
 
   static async getOneMovie(data) {
-    let res = await this.request(`${data}`);
+    let res = await this.request(`movies/${data}`);
     return res.data.movie;
   }
 
   static async addMovie(data) {
-    let res = await this.request("add", data, "post");
+    let res = await this.request("movies/add", "post", data);
     return res.data.movie;
   }
 
   static async addRating(data) {
-    let res = await this.request("rate", data, "post");
+    let res = await this.request("movies/rate", "post", data);
     return res.data.ratings;
   }
 

@@ -13,6 +13,7 @@ function MovieList({ listType, movies }) {
                        positive={movie.positive}
                        negative={movie.negative}
                        poster={movie.poster_path}
+                       release={movie.release_date}
             />
          ))}
       </div>
