@@ -8,13 +8,17 @@ function SearchForm () {
   const [searchResults, setSearchResults] = useState([])
 
   // This one works (as well as the call in App.js)
-  useEffect(async () => {
-    try {
-      let res = await RatorlyApi.movieSearch("morph");
-      setSearchResults(() => res.results);
-    } catch (err) {
-      console.log("This is the error inside of get movies for getCurrentMovies", err);
+  useEffect(() => {
+    async function doSearch () {
+      try {
+        let res = await RatorlyApi.movieSearch("morph");
+        setSearchResults(() => res.results);
+      } catch (err) {
+        console.log("This is the error inside of get movies for getCurrentMovies", err);
+      }
     }
+
+    doSearch();
   }, [])
 
   const handleChange = evt => {
