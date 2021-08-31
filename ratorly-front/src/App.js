@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter} from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import Navigation from "./routes-nav/Navigation";
 import Routes from "./routes-nav/Routes";
 import RatorlyApi from "./api/RatorlyApi";
@@ -15,8 +15,9 @@ function App() {
   // Collect movies to display from TMDb
   useEffect(() => {
     async function getMovies() {
+      console.log("In useEffect getMovies.");
       try {
-        let moviesToShow = await RatorlyApi.getCurrentMovies()
+        let moviesToShow = await RatorlyApi.getCurrentMovies();
         setCurrentMovies(moviesToShow);
       } catch (err) {
         console.log("This is the error inside of get movies for getCurrentMovies", err);
@@ -25,8 +26,9 @@ function App() {
     }
     
     async function getRatedMovies() {
+      console.log("In useEffect getRatedMovies.");
       try {
-        let res = await RatorlyApi.getMovies()
+        let res = await RatorlyApi.getMovies();
         setRatedMovies(res);
         setMoviesLoaded(true);
       } catch (err) {

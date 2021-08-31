@@ -102,7 +102,7 @@ class Movie {
    * Throws BadRequestError if movie already in db.
    */
 
-  static async addMovie({ movie_id, title, release_date, poster_path }) {
+  static async addMovie({ movie_id, positive, negative, title, release_date, poster_path }) {
     const duplicateCheck = await db.query(
           `SELECT title
           FROM ratings
@@ -126,8 +126,8 @@ class Movie {
           RETURNING movie_id, title`,
         [
           movie_id,
-          0,
-          0,
+          positive,
+          negative,
           title,
           release_date,
           poster_path,

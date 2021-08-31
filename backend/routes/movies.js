@@ -52,7 +52,7 @@ router.get("/:movie_id", async function (req, res, next) {
  */
 router.post("/add", async function (req, res, next) {
   try {
-    const movie = await Movie.addMovie(req.body);
+    const movie = await Movie.addMovie(req.body.params);
     return res.status(201).json({ movie });
   } catch(err) {
     return next(err);

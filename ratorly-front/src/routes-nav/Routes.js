@@ -1,5 +1,5 @@
 import React from "react";
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Switch, Route, Redirect } from "react-router-dom";
 import Homepage from "../homepage/Homepage";
 import Rated from "../rating/Rated";
 import TestPage from "../homepage/TestPage";
