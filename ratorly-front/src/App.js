@@ -6,6 +6,8 @@ import RatorlyApi from "./api/RatorlyApi";
 import './App.css';
 import { ClipLoader } from "react-spinners";
 
+// TODO Un-Kludge reload of movies when using nav bar.
+
 function App() {
   console.log("At very top of App.js.");
   const [currentMovies, setCurrentMovies] = useState(null);
@@ -42,9 +44,10 @@ function App() {
   useEffect(() => {
     setMoviesLoaded(false);
     getMovies();
+    getRatedMovies();
   }, []);
 
-  if (!moviesLoaded || !currentMovies) return <ClipLoader />
+  if (!moviesLoaded || !currentMovies || !ratedMovies) return <ClipLoader />
 
   return (
     <BrowserRouter>
