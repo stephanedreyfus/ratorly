@@ -82,14 +82,12 @@ class RatorlyApi {
  
   // Returns an array of 20 movies currently showing.
   static async getCurrentMovies() {
-    console.log("In get recent in API with this:", this);
     let res = await this.dbRequest("now_playing");
     return res.data.results;
   }
   
   // Returns an array of up to 20 movies related to search criteria
   static async movieSearch (search) {
-    console.log("In search in API with this:", this);
     let res = await this.dbRequest("search/movie", search);
     console.log("Here are the results:", res);
     return res.data.results;

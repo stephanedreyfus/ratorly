@@ -7,6 +7,7 @@ import './App.css';
 import { ClipLoader } from "react-spinners";
 
 function App() {
+  console.log("At very top of App.js.");
   const [currentMovies, setCurrentMovies] = useState(null);
   const [ratedMovies, setRatedMovies] = useState(null);
   const [moviesLoaded, setMoviesLoaded] = useState(false);
@@ -26,7 +27,6 @@ function App() {
     async function getRatedMovies() {
       try {
         let res = await RatorlyApi.getMovies()
-        console.debug("What is res and do we need to unpack to get to array?", res);
         setRatedMovies(res);
         setMoviesLoaded(true);
       } catch (err) {
