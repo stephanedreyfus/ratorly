@@ -13,6 +13,7 @@ function App() {
   const [moviesLoaded, setMoviesLoaded] = useState(false);
 
   async function getMovies() {
+    setMoviesLoaded(false);
     console.log("In useEffect getMovies.");
     try {
       let moviesToShow = await RatorlyApi.getCurrentMovies();
@@ -25,6 +26,7 @@ function App() {
   }
   
   async function getRatedMovies() {
+    setMoviesLoaded(false);
     console.log("In useEffect getRatedMovies.");
     try {
       let res = await RatorlyApi.getMovies();
