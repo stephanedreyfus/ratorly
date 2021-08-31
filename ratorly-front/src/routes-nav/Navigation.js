@@ -11,17 +11,17 @@ import {
  * Rendered by App.
 */
 
-function Navigation({doSearch}) {
+function Navigation({doSearch, getCurrent, getRated}) {
   return (
   <div >
     <Navbar id="nav-container">
       <Nav>
-        <NavLink className="nav-link" to="/">
+        <NavLink className="nav-link" to="/" onClick={() => getCurrent()}>
           Ratorly
         </NavLink>
       </Nav>
       <Nav>
-        <NavLink className="nav-link" to="/rating">
+        <NavLink className="nav-link" to="/rating" onClick={() => getRated()}>
           Rate Movies
         </NavLink>
       </Nav>
