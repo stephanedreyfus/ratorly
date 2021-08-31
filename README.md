@@ -1,3 +1,8 @@
+# Search for Movies and Rate Them
+Ratorly is a simple app intended to give people a way to search for movies and either give them positive or negative rating. Rated movies are saved to a database, so ratings can be affected by many people over time.
+
+This app runs a React front end and an Node/Express back end, along with a psql database.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
