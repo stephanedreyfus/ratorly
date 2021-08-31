@@ -25,7 +25,9 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
       if (checkForMovie) doRating(movie_id, rating);
     } catch (err) {
       console.log("Error for attempted add in MovieCard:", err);
-      if (err.message === "Not Found" && err.status === 404) {
+      console.log(`Tryig to take apart error. This is message: ${err.message}, this is status: ${err.status}`);
+      if (err.message === "Cannot read property 'movie' of undefined") {
+        console.log("Made it into error if after checking for movie.");
         const movie = {
           movie_id: id,
           positive: rating === "positive" ? 1 : 0,
