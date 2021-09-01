@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import "./MovieCard.css";
 import RatorlyApi from "../api/RatorlyApi";
 
 
 function MovieCard({ title, positive, negative, poster, release, id }) {
 
-  // TODO refactor these functions up to App.js
+  const [rateInProgress, setRateInProgress] = useState(false);
   
   async function doRating(movie_id, rating) {
     try {
@@ -13,6 +13,7 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
       if (res) {
         const toChange = document.getElementById(`${movie_id}${rating}`);
         toChange.innerText = +toChange.innerText + 1;
+        setRateInProgress(false);
       }
       return res;
     } catch (err) {
@@ -21,6 +22,10 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
   }
   
   async function tryRating(movie_id, rating) {
+    // Control rage clicking on rate elements.
+    if (rateInProgress === true) return;
+
+    setRateInProgress(true);
     try {
       const checkForMovie = await RatorlyApi.getOneMovie(movie_id);
       if (checkForMovie) doRating(movie_id, rating);
@@ -37,9 +42,10 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
         }
         const res = await RatorlyApi.addMovie(movie);
         if (res) {
-
+          // Update rating on DOM to match updated db.
           const toChange = document.getElementById(`${movie_id}${rating}`);
           toChange.innerText = +toChange.innerText + 1;
+          setRateInProgress(false);
         }
         return res;
       }

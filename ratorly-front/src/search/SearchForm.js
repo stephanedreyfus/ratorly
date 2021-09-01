@@ -2,7 +2,14 @@ import React, { useState } from "react";
 import MovieList from "../movies/MovieList";
 import RatorlyApi from "../api/RatorlyApi";
 
-// TODO stop re-render of MovieList child on searchData state update.
+/** Search page of site.
+ * 
+ * Search for and display up to 20 movies matching the search term.
+ * 
+ * Routed at /search
+ * 
+ * Routes -> SearchForm
+ */
 
 function SearchForm() {
 

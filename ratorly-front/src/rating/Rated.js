@@ -2,6 +2,15 @@ import React from "react";
 import "./Rated.css";
 import MovieList from "../movies/MovieList";
 
+/** Rated page of site.
+ * 
+ * Shows movies with ratings that thus already exist in local db.
+ * 
+ * Routed at /rating
+ * 
+ * Routes -> Rated
+ */
+
 function Rated({ ratedMovies }) {
 
   return (
