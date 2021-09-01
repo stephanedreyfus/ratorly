@@ -22,3 +22,7 @@
     min-width: 220px;
     min-height: 330px;
 }
+
+.rate-icon {
+    cursor: pointer;
+}
