@@ -18,7 +18,17 @@ function App() {
     setMoviesLoaded(false);
     console.log("In useEffect getMovies.");
     try {
+      let collection = [];
       let moviesToShow = await RatorlyApi.getCurrentMovies();
+      moviesToShow.forEach(async (movie) => {
+        let res = await RatorlyApi.getOneMovie(movie.id);
+        collection.push(res);
+        return collection;
+        // if (res.movie_id) {
+        //   movie.positive = res.positive;
+        //   movie.negative = res.negative;
+        // }
+      })
       setCurrentMovies(moviesToShow);
       setMoviesLoaded(true);
     } catch (err) {

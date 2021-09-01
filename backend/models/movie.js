@@ -18,7 +18,10 @@ class Movie {
 
   static async getMovie(movie_id) {
     const movieRes = await db.query(
-          `SELECT movie_id, title
+          `SELECT movie_id,
+                  title,
+                  positive,
+                  negative
           FROM ratings
           WHERE movie_id = $1`,
           [movie_id],
