@@ -1,6 +1,8 @@
 .movie-card {
     display: inline-block;
     background-color: lightskyblue;
+    max-width: 220px;
+    max-height: 419px;
     border-radius: 10px;
     margin: .5em;
     padding: .5em;

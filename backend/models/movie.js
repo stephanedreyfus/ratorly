@@ -134,12 +134,28 @@ class Movie {
           title,
           release_date,
           poster_path,
-        ],
+        ]
     );
     
     const movie = result.rows[0];
 
     return movie;
+  }
+
+  /** Remove a movie from the collection
+   * @param movie_id integer
+   */
+  static async removeMovie(movie_id) {
+    const result = await db.query(
+      `DELETE FROM ratings
+      WHERE movie_id = $1
+      RETURNING *`,
+      [movie_id]
+    );
+
+    const confirmation = result.rows[0];
+
+    return confirmation;
   }
 }
 

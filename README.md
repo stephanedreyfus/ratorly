@@ -3,13 +3,19 @@ Ratorly is a simple app intended to give people a way to search for movies and e
 
 This app runs a React front end and an Node/Express back end, along with a psql database.
 
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
 ## API for Movie Details
 
 This product uses the [TMDb API](https://www.themoviedb.org/) but is not endorsed or certified by TMDb.
+
+### TODO List
+- [ ] Limit rating to one click per movie?
+- [ ] Add testing.
+- [ ] Improve CSS.
+- [ ] Add modal for clicked movies to see details.
+
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
