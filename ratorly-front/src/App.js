@@ -16,19 +16,20 @@ function App() {
 
   async function getMovies() {
     setMoviesLoaded(false);
-    console.log("In useEffect getMovies.");
     try {
-      let collection = [];
       let moviesToShow = await RatorlyApi.getCurrentMovies();
-      moviesToShow.forEach(async (movie) => {
-        let res = await RatorlyApi.getOneMovie(movie.id);
-        collection.push(res);
-        return collection;
-        // if (res.movie_id) {
-        //   movie.positive = res.positive;
-        //   movie.negative = res.negative;
-        // }
-      })
+      // Check to see if any current movies have ratings.
+      for (let movie of moviesToShow) {
+        try {
+          let res = await RatorlyApi.getOneMovie(movie.id);
+            if (res.movie_id) {
+                movie.positive = res.positive;
+                movie.negative = res.negative;
+              }
+          } catch (err) {
+            console.log("Error from forEach catch in getMovies:", err);
+          }
+        }
       setCurrentMovies(moviesToShow);
       setMoviesLoaded(true);
     } catch (err) {
@@ -50,14 +51,14 @@ function App() {
     }
   }
 
-  // Collect movies to display from TMDb
+  // Collect movies to display from both TMDb and local db.
   useEffect(() => {
     setMoviesLoaded(false);
     getMovies();
     getRatedMovies();
   }, []);
 
-  if (!moviesLoaded || !currentMovies || !ratedMovies) return <ClipLoader />
+  if (!moviesLoaded || !currentMovies || !ratedMovies) return <ClipLoader id="clip-loader" />
 
   return (
     <BrowserRouter>

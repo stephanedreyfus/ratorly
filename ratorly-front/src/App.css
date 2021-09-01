@@ -13,3 +13,10 @@ ul {
 .home-intro {
   size: 2em;
 }
+
+#clip-loader {
+  display: block;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
