@@ -49,7 +49,7 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
   // TODO Look for good icon for ratings <p>. Fontawesome requires membership for React icons.
   return (
     <div className="movie-card">
-      <img src={`https://www.themoviedb.org/t/p/w220_and_h330_face${poster}`} alt={title} />
+      <img className="img-card" src={`https://www.themoviedb.org/t/p/w220_and_h330_face${poster}`} alt={title} />
       <div className="movie-title">{title}</div>
       <div className="ratings-container">
         <p>Ratings: </p>

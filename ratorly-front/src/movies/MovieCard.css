@@ -17,3 +17,8 @@
     max-width: 90%;
     word-wrap: break-word;
 }
+
+.img-card {
+    min-width: 220px;
+    min-height: 330px;
+}
