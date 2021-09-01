@@ -19,15 +19,13 @@ function SearchForm() {
 
   const doSearch = async (evt) => {
     evt.preventDefault();
-    console.log("This is the target:", evt.target);
-
     setSearchResults([]);
+
     let res = await RatorlyApi.movieSearch(searchData.search);
-    console.log("This is the result from the search field call:", res);
     setSearchResults(res);
   }
 
-  const notYet = (<h3>No Search Results Yet</h3>);
+  const notYet = (<h3>No Search Results</h3>);
 
   const showResults = (<MovieList listType="Search Results" movies={searchResults} />)
 
@@ -44,7 +42,7 @@ function SearchForm() {
         />
       </form>
       <section>
-        {searchResults ? showResults : notYet}
+        {searchResults.length > 0 ? showResults : notYet}
       </section>
     </div>
   )
