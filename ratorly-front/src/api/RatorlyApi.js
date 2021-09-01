@@ -89,7 +89,7 @@ class RatorlyApi {
   // Returns an array of up to 20 movies related to search criteria
   static async movieSearch (search) {
     let res = await this.dbRequest("search/movie", search);
-    console.log("Here are the results:", res);
+    console.log("In RatorlyApi with these TMdb search results:", res);
     return res.data.results;
   }
 }

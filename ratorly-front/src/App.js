@@ -40,7 +40,6 @@ function App() {
   
   async function getRatedMovies() {
     setMoviesLoaded(false);
-    console.log("In useEffect getRatedMovies.");
     try {
       let res = await RatorlyApi.getMovies();
       setRatedMovies(res);
@@ -63,7 +62,6 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        {/* Need to move search to a new function that also updates page content, pass that down, not API itself. */}
         <Navigation getCurrent={getMovies} getRated={getRatedMovies}/>
         <Routes currMovies={currentMovies}
                 ratedMovies={ratedMovies}

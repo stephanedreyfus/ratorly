@@ -1,25 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import MovieList from "../movies/MovieList";
 import RatorlyApi from "../api/RatorlyApi";
 
-function SearchForm () {
+function SearchForm() {
 
   const [searchData, setSearchData] = useState({});
   const [searchResults, setSearchResults] = useState([])
-
-  // This one works (as well as the call in App.js)
-  useEffect(() => {
-    async function doSearch () {
-      try {
-        let res = await RatorlyApi.movieSearch("morph");
-        setSearchResults(() => res.results);
-      } catch (err) {
-        console.log("This is the error inside of get movies for getCurrentMovies", err);
-      }
-    }
-
-    doSearch();
-  }, [])
 
   const handleChange = evt => {
     const { name, value } = evt.target
@@ -29,12 +15,14 @@ function SearchForm () {
     }));
   }
 
-  // This one never works. It goes through the API code, fails the make the call, and then refreshes the whole app.
-  const doSearch = async () => {
-    setSearchResults(() => []);
+  const doSearch = async (evt) => {
+    evt.preventDefault();
+    console.log("This is the target:", evt.target);
+
+    setSearchResults([]);
     let res = await RatorlyApi.movieSearch(searchData.search);
-    console.log("This is the result fro the search field call:", res.results);
-    setSearchResults(() => res.results);
+    console.log("This is the result from the search field call:", res);
+    setSearchResults(res);
   }
 
   const notYet = (<h3>No Search Results Yet</h3>);
