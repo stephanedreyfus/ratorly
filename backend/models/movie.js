@@ -49,7 +49,8 @@ class Movie {
                   negative,
                   release_date,
                   poster_path
-           FROM ratings`
+           FROM ratings
+           ORDER BY title`
       );
       const movies = moviesRes.rows
 

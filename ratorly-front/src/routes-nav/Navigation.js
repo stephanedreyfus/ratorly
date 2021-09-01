@@ -22,7 +22,7 @@ function Navigation({doSearch, getCurrent, getRated}) {
       </Nav>
       <Nav>
         <NavLink className="nav-link" to="/rating" onClick={() => getRated()}>
-          Rate Movies
+          Rated Movies
         </NavLink>
       </Nav>
       <Nav>
