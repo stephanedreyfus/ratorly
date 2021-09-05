@@ -14,7 +14,7 @@ import {
 function Navigation({doSearch, getCurrent, getRated}) {
   return (
   <div >
-    <Navbar id="nav-container">
+    <Navbar color="light" light id="nav-container">
       <Nav>
         <NavLink className="nav-link" to="/" onClick={() => getCurrent()}>
           Ratorly
@@ -28,11 +28,6 @@ function Navigation({doSearch, getCurrent, getRated}) {
       <Nav>
         <NavLink className="nav-link" to="/search">
           Search for Movies to Rate
-        </NavLink>
-      </Nav>
-      <Nav>
-        <NavLink className="nav-link" to="/test">
-          ReactStrap Test Page
         </NavLink>
       </Nav>
     </Navbar>

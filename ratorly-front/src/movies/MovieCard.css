@@ -1,7 +1,7 @@
 .movie-card {
     display: inline-block;
     background-color: lightskyblue;
-    max-width: 220px;
+    max-width: 240px;
     max-height: 419px;
     border-radius: 10px;
     margin: .5em;
@@ -15,9 +15,16 @@
     justify-content: space-around;
 }
 
+/* TODO: Find way to shrink text if overflow. */
 .movie-title {
-    max-width: 90%;
-    word-wrap: break-word;
+    overflow: hidden;
+    white-space: nowrap;
+    /* word-wrap: break-word; */
+    /* text-overflow: ellipsis; */
+    /* display: block; */
+    /* line-height: 1.5em; */
+    /* max-height: 2em; */
+    /* font-size: 1em; */
 }
 
 .img-card {

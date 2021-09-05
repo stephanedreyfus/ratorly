@@ -2,7 +2,6 @@ import React from "react";
 import {Switch, Route, Redirect } from "react-router-dom";
 import Homepage from "../homepage/Homepage";
 import Rated from "../rating/Rated";
-import TestPage from "../homepage/TestPage";
 import SearchForm from "../search/SearchForm";
 
 
@@ -25,10 +24,6 @@ function Routes({ currMovies ,ratedMovies }) {
 
         <Route exact path="/search">
           <SearchForm />
-        </Route>
-
-        <Route>
-          <TestPage />
         </Route>
 
         <Redirect to="/" />

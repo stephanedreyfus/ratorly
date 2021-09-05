@@ -3,8 +3,9 @@ import { BrowserRouter } from "react-router-dom";
 import Navigation from "./routes-nav/Navigation";
 import Routes from "./routes-nav/Routes";
 import RatorlyApi from "./api/RatorlyApi";
+import { Spinner } from "reactstrap";
 import './App.css';
-import { ClipLoader } from "react-spinners";
+// import { ClipLoader } from "react-spinners";
 
 // TODO Un-Kludge reload of movies when using nav bar.
 
@@ -57,7 +58,12 @@ function App() {
     getRatedMovies();
   }, []);
 
-  if (!moviesLoaded || !currentMovies || !ratedMovies) return <ClipLoader id="clip-loader" />
+  // if (!moviesLoaded || !currentMovies || !ratedMovies) return <ClipLoader id="clip-loader" />
+  if (!moviesLoaded || !currentMovies || !ratedMovies) return (
+    <div className="spin-container">
+      <Spinner color="info" id="spinner"/>
+    </div>
+  )
 
   return (
     <BrowserRouter>
