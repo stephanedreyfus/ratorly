@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./MovieCard.css";
 import RatorlyApi from "../api/RatorlyApi";
-import { UncontrolledTooltip } from "reactstrap";
+// import { UncontrolledTooltip } from "reactstrap";
 
 
 function MovieCard({ title, positive, negative, poster, release, id }) {
@@ -72,4 +72,3 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
 }
 
 export default MovieCard;
-
