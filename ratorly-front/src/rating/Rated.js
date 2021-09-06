@@ -14,7 +14,7 @@ import MovieList from "../movies/MovieList";
 function Rated({ ratedMovies }) {
   return (
     <div className="rated-movies">
-      <div className="containter text-center">
+      <div className="container text-center">
       <h1 className="mb-4 font-weight-bold">A Small Collection of Movies Already Rated</h1>
         {ratedMovies
           ? (

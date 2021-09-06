@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./MovieCard.css";
 import RatorlyApi from "../api/RatorlyApi";
+import { UncontrolledTooltip } from "reactstrap";
 
 
 function MovieCard({ title, positive, negative, poster, release, id }) {
@@ -56,7 +57,11 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
   return (
     <div className="movie-card">
       <img className="img-card" src={`https://www.themoviedb.org/t/p/w220_and_h330_face${poster}`} alt={`Poster for movie ${title}`} />
-      <div className="movie-title">{title}</div>
+      <div className="movie-title">
+        {title}
+        {/* <span href="#" id={`${id}Tooltip`}>{title}</span>
+        <UncontrolledTooltip placement="bottom" target={`${id}Tooltip`}>{title}</UncontrolledTooltip> */}
+      </div>
       <div className="ratings-container">
         <p>Ratings: </p>
         <span><i className="fa-solid fa-thumbs-up rate-icon" onClick={() => tryRating(id, "positive")}></i> <p id={`${id}positive`}>{positive || 0}</p></span>
@@ -67,3 +72,4 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
 }
 
 export default MovieCard;
+
