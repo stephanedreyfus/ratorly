@@ -3,7 +3,7 @@ import "./MovieCard.css";
 import RatorlyApi from "../api/RatorlyApi";
 import { FaThumbsUp } from 'react-icons/fa'
 import { FaThumbsDown } from 'react-icons/fa'
-// import { UncontrolledTooltip } from "reactstrap";
+import { UncontrolledTooltip } from "reactstrap";
 
 
 function MovieCard({ title, positive, negative, poster, release, id }) {
@@ -53,19 +53,24 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
         }
         return res;
       }
-    else {
-      console.log("Bottom of tryRating with this error:", err);
-    }
+      else {
+        console.log("Bottom of tryRating with this error:", err);
+      }
     }
   }
+
+  const addTooltip = (
+    <>
+      <span href="#" id={`Tooltip${id}`}>{title}</span>
+      <UncontrolledTooltip placement="bottom" target={`Tooltip${id}`}>{title}</UncontrolledTooltip>
+    </>
+  )
 
   return (
     <div className="movie-card">
       <img className="img-card" src={`https://www.themoviedb.org/t/p/w220_and_h330_face${poster}`} alt={`Poster for movie ${title}`} />
       <div className="movie-title">
-        {title}
-        {/* <span href="#" id={`${id}Tooltip`}>{title}</span>
-        <UncontrolledTooltip placement="bottom" target={`${id}Tooltip`}>{title}</UncontrolledTooltip> */}
+        {title.length > 28 ? addTooltip : title}
       </div>
       <div className="ratings-container">
         <p>Ratings: </p>
