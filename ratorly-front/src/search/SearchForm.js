@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./SearchForm.css";
 import MovieList from "../movies/MovieList";
 import RatorlyApi from "../api/RatorlyApi";
 
@@ -32,7 +33,7 @@ function SearchForm() {
     setSearchResults(res);
   }
 
-  const notYet = (<h3>No Search Results</h3>);
+  const notYet = (<h3 id="no-results">No Search Results</h3>);
 
   const showResults = (<MovieList listType="Search Results" movies={searchResults} />)
 

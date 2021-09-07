@@ -68,8 +68,10 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
       </div>
       <div className="ratings-container">
         <p>Ratings: </p>
-        <span><i className="fa-solid fa-thumbs-up rate-icon" onClick={() => tryRating(id, "positive")}></i> <p id={`${id}positive`}>{positive || 0}</p></span>
-        <span><i className="fa-solid fa-thumbs-down rate-icon" onClick={() => tryRating(id, "negative")}></i> <p id={`${id}negative`}>{negative || 0}</p></span>
+        <span><img src="../../public/like.svg" onClick={() => tryRating(id, "positive")} alt="Thumbs up."/> <p id={`${id}positive`}>{positive || 0}</p></span>
+        <span><img src="../../public/thumb-down.svg" onClick={() => tryRating(id, "negative")} alt="Thumbs down."/> <p id={`${id}negative`}>{negative || 0}</p></span>
+        {/* <span><i className="fa-solid fa-thumbs-up rate-icon" onClick={() => tryRating(id, "positive")}></i> <p id={`${id}positive`}>{positive || 0}</p></span>
+        <span><i className="fa-solid fa-thumbs-down rate-icon" onClick={() => tryRating(id, "negative")}></i> <p id={`${id}negative`}>{negative || 0}</p></span> */}
       </div>
     </div>
   )
