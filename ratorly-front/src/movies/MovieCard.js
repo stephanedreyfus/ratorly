@@ -31,7 +31,8 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
       const checkForMovie = await RatorlyApi.getOneMovie(movie_id);
       if (checkForMovie) doRating(movie_id, rating);
     } catch (err) {
-      if (err.message === "Cannot read property 'movie' of undefined") {
+      if (err.status === "Cannot read property 'movie' of undefined" ||
+                         "Cannot read properties of undefined (reading 'movie')") {
         console.log("Made it into error if after checking for movie.");
         const movie = {
           movie_id: id,
@@ -50,6 +51,9 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
         }
         return res;
       }
+    else {
+      console.log("Bottom of tryRating with this error:", err);
+    }
     }
   }
 

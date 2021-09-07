@@ -48,7 +48,7 @@ function SearchForm() {
               placeholder="Enter a search term."
         />
       </form>
-      <section>
+      <section className="container">
         {searchResults.length > 0 ? showResults : notYet}
       </section>
     </div>
