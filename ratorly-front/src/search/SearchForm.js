@@ -33,7 +33,7 @@ function SearchForm() {
     setSearchResults(res);
   }
 
-  const notYet = (<h3 id="no-results">No Search Results</h3>);
+  const notYet = (<p id="no-results">NO SEARCH RESULTS</p>);
 
   const showResults = (<MovieList listType="Search Results" movies={searchResults} />)
 
@@ -42,11 +42,11 @@ function SearchForm() {
       <form onSubmit={doSearch} id="search-form">
         <label htmlFor="search">Search for a movie: </label>
         <input type="search"
-              id="search-field"
-              onChange={handleChange}
-              name="search"
-              required={true}
-              placeholder="Enter a search term."
+               id="search-field"
+               onChange={handleChange}
+               name="search"
+               required={true}
+               placeholder="Enter a search term."
         />
       </form>
       <section className="container">

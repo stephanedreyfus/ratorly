@@ -15,7 +15,7 @@ function Rated({ ratedMovies }) {
   return (
     <div className="rated-movies">
       <div className="container text-center">
-      <h1 className="mb-4 font-weight-bold">A Small Collection of Movies Already Rated</h1>
+      <p id="rated-title">PREVIOUSLY RATED</p>
         {ratedMovies
           ? (
               <MovieList listType="Already Rated" movies={ratedMovies} />

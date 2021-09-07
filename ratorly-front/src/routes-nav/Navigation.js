@@ -3,6 +3,7 @@ import "./Navigation.css";
 import { NavLink } from "react-router-dom";
 import {
   Navbar,
+  NavbarBrand,
   Nav
 } from 'reactstrap';
 
@@ -14,10 +15,11 @@ import {
 function Navigation({doSearch, getCurrent, getRated}) {
   return (
   <div >
-    <Navbar color="light" light id="nav-container">
+    <Navbar color="dark" dark id="nav-container">
+      <NavbarBrand href="/">RATORLY</NavbarBrand>
       <Nav>
         <NavLink className="nav-link" to="/" onClick={() => getCurrent()}>
-          Ratorly
+          Current Releases
         </NavLink>
       </Nav>
       <Nav>
