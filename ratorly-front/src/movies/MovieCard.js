@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import "./MovieCard.css";
 import RatorlyApi from "../api/RatorlyApi";
+import { FaThumbsUp } from 'react-icons/fa'
+import { FaThumbsDown } from 'react-icons/fa'
 // import { UncontrolledTooltip } from "reactstrap";
 
 
@@ -68,10 +70,8 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
       </div>
       <div className="ratings-container">
         <p>Ratings: </p>
-        <span><img src="../../public/like.svg" onClick={() => tryRating(id, "positive")} alt="Thumbs up."/> <p id={`${id}positive`}>{positive || 0}</p></span>
-        <span><img src="../../public/thumb-down.svg" onClick={() => tryRating(id, "negative")} alt="Thumbs down."/> <p id={`${id}negative`}>{negative || 0}</p></span>
-        {/* <span><i className="fa-solid fa-thumbs-up rate-icon" onClick={() => tryRating(id, "positive")}></i> <p id={`${id}positive`}>{positive || 0}</p></span>
-        <span><i className="fa-solid fa-thumbs-down rate-icon" onClick={() => tryRating(id, "negative")}></i> <p id={`${id}negative`}>{negative || 0}</p></span> */}
+        <span><FaThumbsUp className="rate-icon" onClick={() => tryRating(id, "positive")} /></span><p id={`${id}positive`}>{positive || 0}</p>
+        <span><FaThumbsDown className="rate-icon" onClick={() => tryRating(id, "negative")} /></span><p id={`${id}negative`}>{negative || 0}</p>
       </div>
     </div>
   )
