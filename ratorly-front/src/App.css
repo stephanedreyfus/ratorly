@@ -23,11 +23,11 @@ ul {
 #spinner {
   height: 5em;
   width: 5em;
-}
-
-/* #clip-loader {
   display: block;
-  margin: auto;
-  width: 50%;
-  padding: 10px;
-} */
+  position: fixed;
+  z-index: 1031; /* High z-index so it is on top of the page */
+  top: 50%;
+  right: 50%; /* or: left: 50%; */
+  margin-top: -2.5em; /* half of the elements height */
+  margin-right: -2.5em; /* half of the elements widht */
+}

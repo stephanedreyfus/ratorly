@@ -144,6 +144,8 @@ class Movie {
 
   /** Remove a movie from the collection
    * @param movie_id integer
+   * 
+   * Not yet implemented on front end.
    */
   static async removeMovie(movie_id) {
     const result = await db.query(
