@@ -7,6 +7,11 @@ This app runs a React front end and an Node/Express back end, along with a psql 
 
 This product uses the [TMDb API](https://www.themoviedb.org/) but is not endorsed or certified by TMDb.
 
+## Favico by Favicon-Converter
+
+Free and super easy to use. I love this site!
+https://favicon.io/favicon-converter/
+
 ### TODO List
 - [ ] Limit rating to one click per movie?
 - [ ] Add testing.
