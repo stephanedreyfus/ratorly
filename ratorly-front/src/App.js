@@ -9,7 +9,6 @@ import './App.css';
 // TODO Un-Kludge reload of movies when using nav bar.
 
 function App() {
-  console.log("At very top of App.js.");
   const [currentMovies, setCurrentMovies] = useState(null);
   const [ratedMovies, setRatedMovies] = useState(null);
   const [moviesLoaded, setMoviesLoaded] = useState(false);

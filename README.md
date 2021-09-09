@@ -16,6 +16,7 @@ https://favicon.io/favicon-converter/
 - [ ] Limit rating to one click per movie?
 - [ ] Add testing.
 - [ ] Improve CSS.
+- [ ] Fix css jump on navigation to search page
 - [ ] Add modal for clicked movies to see details.
 
 # Getting Started with Create React App

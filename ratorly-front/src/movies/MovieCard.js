@@ -35,7 +35,6 @@ function MovieCard({ title, positive, negative, poster, release, id }) {
     } catch (err) {
       if (err.status === "Cannot read property 'movie' of undefined" ||
                          "Cannot read properties of undefined (reading 'movie')") {
-        console.log("Made it into error if after checking for movie.");
         const movie = {
           movie_id: id,
           positive: rating === "positive" ? 1 : 0,

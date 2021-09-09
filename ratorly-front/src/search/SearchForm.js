@@ -48,6 +48,9 @@ function SearchForm() {
                required={true}
                placeholder="Enter a search term."
         />
+        <div id="submit-container">
+          <input type="submit" value="Search!" />
+        </div>
       </form>
       <section className="container">
         {searchResults.length > 0 ? showResults : notYet}

@@ -74,7 +74,6 @@ class RatorlyApi {
     try {
       return await q;
     } catch (err) {
-      console.log ("DB API Error:", err.response);
       let message = err.response.data.message;
       throw Array.isArray(message) ? message : [message];
     }
@@ -89,7 +88,6 @@ class RatorlyApi {
   // Returns an array of up to 20 movies related to search criteria
   static async movieSearch (search) {
     let res = await this.dbRequest("search/movie", search);
-    console.log("In RatorlyApi with these TMdb search results:", res);
     return res.data.results;
   }
 }
