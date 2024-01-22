@@ -67,7 +67,7 @@ class RatorlyApi {
       console.debug(`Inside of dbRequest with endpoint ${endpoint} and this api: ${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&query=${params}&page=1&include_adult=false`);
 
       q = axios.get(
-        `${BASE_TMDb_URL}/${endpoint}?api_key=${API_KEY_V3}&language=en-US&query=${params}&page=1&include_adult=false`
+        `${BASE_TMDb_URL}/movie${endpoint}?query=${params}&page=1&include_adult=false&api_key=${API_KEY_V3}&language=en-US`
       );
     }
 
